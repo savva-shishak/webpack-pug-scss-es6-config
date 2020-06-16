@@ -1,0 +1,74 @@
+$dark: #1f2041;
+$dark75: rgba(#1f2041, 0.75);
+$dark50: rgba(#1f2041, 0.5);
+$dark25: rgba(#1f2041, 0.25);
+$dark05: rgba(#1f2041, 0.05);
+
+$purple: #bc9cff;
+$primary: $purple;
+
+$green: #6fcf97;
+$secondary: $green;
+
+.color-piker {
+
+    display: flex;
+
+    &__verbose {
+        margin-left: 10px;
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+    }
+
+    &__label {
+        font-family: Quicksand;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 19px;
+        color: #1F2041;
+    }
+
+    &__value {
+        font-family: Quicksand;
+        font-style: normal;
+        font-weight: 100;
+        font-size: 19px;
+        color: #1F2041;
+    }
+
+    &__box {
+        width: 70px;
+        height: 70px;
+        border-radius: 6px;
+        margin-right: 10px;
+    }
+
+    &_primary &__box, &_purple &__box {
+        background: $purple;
+    }
+
+    &_secondary &__box, &_green &__box {
+        background: $green;
+    }
+
+    &_dark &__box {
+        background: $dark;
+    }
+
+    &_dark75 &__box {
+        background: $dark75;
+    }
+
+    &_dark50 &__box {
+        background: $dark50;
+    }
+
+    &_dark25 &__box {
+        background: $dark25;
+    }
+
+    &_dark05 &__box {
+        background: $dark05;
+    }
+}

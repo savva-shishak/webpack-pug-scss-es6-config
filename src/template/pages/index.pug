@@ -1,0 +1,23 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="utf-8")
+        block title
+            title Главная
+
+    body
+        include ../common/mixins
+        +header('Главная')
+
+        .container
+            .h1 Савва Шишак
+            |Это просто красивый сайт с набором элементов пользовательского интерфейса
+            .pt-4 Страницы сайта:
+            ul 
+                li
+                    a.link(href="colors.html") Цвета
+                li
+                    a.link(href="fonts.html") Шрифты
+                li
+                    a.link(href="textfields.html") Поля ввода
+

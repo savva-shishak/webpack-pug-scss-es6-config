@@ -1,0 +1,46 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="utf-8")
+        block title
+            title Поля ввода
+
+    body
+        include ../common/mixins
+        +header('Поля ввода')
+
+        .container
+            .row
+                .col-3
+                    .p-3
+                        +b.textfield
+                            +e.head
+                                +e.label text field
+                                +e.hint default
+                            input.textfield__input(type="text", placeholder="Email")
+                .col-3
+                    .p-3
+                        +b.textfield._focused
+                            +e.head
+                                +e.label text field
+                                +e.hint hover/focus
+                            +e.control
+                                input.textfield__input(type="text", value="This is pretty awesome")
+                .col-3
+                    .p-3
+                        +b.textfield
+                            +e.head
+                                +e.label dropdown
+                                +e.hint default
+                            +e.control
+                                +e.input Сколько гостей
+                                +e.btn
+                                    img(src="/assets/images/common/textfield/expand_more.png", alt="")
+                .col-3
+                    .p-3
+                        +b.textfield
+                            +e.head
+                                +e.label masked text field
+                                +e.hint default
+                            +e.control
+                                input.textfield__input(data-mask="00.00.0000", placeholder="ДД.ММ.ГГГГ")

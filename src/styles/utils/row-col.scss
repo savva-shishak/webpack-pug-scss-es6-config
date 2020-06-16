@@ -1,0 +1,39 @@
+.row {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+}
+
+.col {
+    flex: 1 1 auto;       
+}
+
+@for $colspan from 1 to 13 {
+    .col-#{$colspan} {
+        width: ($colspan/12) * 100%;
+    }
+
+    @media (min-width: 575.98px){
+        .col-sm-#{$colspan} {
+            width: ($colspan/12) * 100% !important;
+        }
+    }
+    
+    @media (min-width: 767.98px){
+        .col-md-#{$colspan} {
+            width: ($colspan/12) * 100% !important;
+        }
+    }
+    
+    @media (min-width: 991.98px) {
+        .col-lg-#{$colspan} {
+            width: ($colspan/12) * 100% !important;
+        }
+    }
+    
+    @media (min-width: 1199.98px){
+        .col-xl-#{$colspan} {
+            width: ($colspan/12) * 100% !important;
+        }
+    }
+}

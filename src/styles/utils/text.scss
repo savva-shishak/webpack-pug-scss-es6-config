@@ -1,0 +1,83 @@
+@mixin text_h1 {
+    font-family: Lato;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 30px;
+
+    color: $dark;
+}
+
+@mixin text_h2 {
+    font-family: Lato;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 19px;
+    line-height: 24px;
+
+    color: $dark;
+}
+
+@mixin text_h3 {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 15px;
+
+    text-transform: uppercase;
+    color: $dark;
+}
+
+@mixin text_small {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+
+    color: $dark25;
+    text-transform: none;
+}
+
+@mixin link {
+    @include text_h3;
+    text-decoration: none;
+    color: $dark50;
+    cursor: pointer;
+
+    &:hover {
+        color: $dark75;
+    }
+}
+
+
+.h1 {
+    @include text_h1();
+}
+
+.h2 {
+    @include text_h2();
+}
+
+.h3 {
+    @include text_h3();
+}
+
+.small {
+    @include text_small();
+}
+
+body {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+
+    color: $dark75;
+}
+
+.link {
+    @include link;
+}

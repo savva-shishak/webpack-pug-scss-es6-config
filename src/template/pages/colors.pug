@@ -1,0 +1,54 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="utf-8")
+        block title
+            title Цвета
+
+    body
+        include ../common/mixins
+        +header('Цвета')
+
+        .container
+            .p-3
+                +b.color-piker._dark
+                    +e.box
+                    +e.verbose
+                        +e.label Dark Shade 100%
+                        +e.value #1F2041
+            .p-3
+                +b.color-piker._dark75
+                    +e.box
+                    +e.verbose
+                        +e.label Dark Shade 75%
+                        +e.value #1F2041
+            .p-3
+                +b.color-piker._dark50
+                    +e.box
+                    +e.verbose
+                        +e.label Dark Shade 50%
+                        +e.value #1F2041
+            .p-3
+                +b.color-piker._dark25
+                    +e.box
+                    +e.verbose
+                        +e.label Dark Shade 25%
+                        +e.value #1F2041
+            .p-3
+                +b.color-piker._dark05
+                    +e.box
+                    +e.verbose
+                        +e.label Dark Shade 5%
+                        +e.value #1F2041
+            .p-3
+                +b.color-piker._primary
+                    +e.box
+                    +e.verbose
+                        +e.label Purple
+                        +e.value #1F2041
+            .p-3
+                +b.color-piker._secondary
+                    +e.box
+                    +e.verbose
+                        +e.label Green
+                        +e.value #1F2041

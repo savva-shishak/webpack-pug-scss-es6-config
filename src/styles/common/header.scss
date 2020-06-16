@@ -1,0 +1,31 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: $dark05;
+    width: 100%;
+
+    &__links {
+        padding: 15px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    &__link {
+        padding: 0 5px;
+        @include link;
+    }
+
+    &__link_active {
+        color: $dark;
+
+        &:hover {
+            color: $dark;
+        }
+    }
+}
+
+body {
+    margin-top: 70px;
+}

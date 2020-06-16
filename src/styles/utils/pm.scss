@@ -1,0 +1,57 @@
+@for $size from 1 to 5 {
+    .p-#{$size} {
+        padding: $size * 3px;       
+    }
+
+    .pt-#{$size} {
+        padding-top: $size * 3px;       
+    }
+
+    .pb-#{$size} {
+        padding-bottom: $size * 3px;       
+    }
+
+    .pr-#{$size} {
+        padding-right: $size * 3px;       
+    }
+
+    .pl-#{$size} {
+        padding-left: $size * 3px;       
+    }
+
+    .pv-#{$size} {
+        padding-top: $size * 3px; 
+        padding-bottom: $size * 3px; 
+    }
+}
+
+@for $size from 1 to 5 {
+    .m-#{$size} {
+        margin: $size * 3px;       
+    }
+
+    .mt-#{$size} {
+        margin-top: $size * 3px;       
+    }
+
+    .mb-#{$size} {
+        margin-bottom: $size * 3px;       
+    }
+
+    .mr-#{$size} {
+        margin-right: $size * 3px;       
+    }
+
+    .ml-#{$size} {
+        margin-left: $size * 3px;       
+    }
+
+    .mv-#{$size} {
+        margin-top: $size * 3px; 
+        margin-bottom: $size * 3px; 
+    }
+}
+
+.m-auto {
+    margin: 0 auto;
+}
