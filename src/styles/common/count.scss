@@ -20,9 +20,21 @@
         height: 30px;
         border: 1px solid $dark25;
         border-radius: 15px;
+        color: $dark;
+        
         display: flex;
         justify-content: center;
         align-items: center;
+
+        cursor: pointer;
+
+        &:hover {
+            border-color: $dark50;
+        }
+
+        &:active {
+            border-color: $dark75;
+        }
     }
 
     &__value {

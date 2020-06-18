@@ -1,5 +1,5 @@
 {
-  "name": "webpack4-pug-sass-example",
+  "name": "fsd-step-2",
   "version": "1.0.0",
   "description": "",
   "main": "main.js",
@@ -8,7 +8,6 @@
     "build": "webpack --mode production",
     "watch": "webpack-dev-server --mode development --open"
   },
-  "author": "rybkin",
   "license": "ISC",
   "dependencies": {
     "imagemin-pngquant": "^5.0.1",

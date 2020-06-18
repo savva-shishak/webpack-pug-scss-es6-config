@@ -43,11 +43,12 @@
 @mixin link {
     @include text_h3;
     text-decoration: none;
-    color: $dark50;
+    color: $purple;
     cursor: pointer;
+    opacity: 1;
 
     &:hover {
-        color: $dark75;
+        opacity: .8;
     }
 }
 
