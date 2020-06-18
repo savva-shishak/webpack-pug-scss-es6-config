@@ -10,7 +10,8 @@ html(lang="en")
         +header('Поля ввода')
 
         .container
-            .row
+            div Текстовые поля
+            .row.mb-4
                 .col-3
                     .p-3
                         +b.textfield
@@ -44,3 +45,60 @@ html(lang="en")
                                 +e.hint default
                             +e.control
                                 input.textfield__input(data-mask="00.00.0000", placeholder="ДД.ММ.ГГГГ")
+                .col-3
+                    .row
+                        .col-6    
+                            .p-3
+                                +b.textfield
+                                    +e.head
+                                        +e.label date dropdown
+                                    +e.control
+                                        +e.input ДД.ММ.ГГГГ
+                                        +e.btn
+                                            img(src="/assets/images/common/textfield/expand_more.png", alt="")
+                        .col-6    
+                            .p-3
+                                +b.textfield
+                                    +e.head
+                                        +e.label date dropdown
+                                    +e.control
+                                        +e.input 19.08.2019
+                                        +e.btn
+                                            img(src="/assets/images/common/textfield/expand_more.png", alt="")
+
+            div Выдвигающиеся поля
+            .row
+                .col-3
+                    .p-3
+                        +b.textfield
+                            +e.head
+                                +e.label dropdown
+                                +e.hint default
+                            +e.control
+                                +e.input 2 спальни, 2 кровати
+                                +e.btn
+                                    img(src="/assets/images/common/textfield/expand_more.png", alt="")
+                                +e.down
+                                        +b.count
+                                            +e.label спальни
+                                            +e.input 
+                                                +e.flat -
+                                                +e.value 2
+                                                +e.flat +
+                .col-3
+                    .p-3
+                        +b.textfield._open
+                            +e.head
+                                +e.label dropdown
+                                +e.hint expended
+                            +e.control
+                                +e.input 2 спальни, 2 кровати
+                                +e.btn
+                                    img(src="/assets/images/common/textfield/expand_more.png", alt="")
+                                +e.down
+                                    +b.count
+                                        +e.label спальни
+                                        +e.input 
+                                            +e.flat -
+                                            +e.value 2
+                                            +e.flat +

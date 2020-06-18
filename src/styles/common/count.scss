@@ -1,0 +1,33 @@
+.count {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    &__label, &__value {
+        @include text_h3;
+    }
+
+    &__input {
+        display: grid;
+        grid-template-columns: 32px max-content 32px;
+        column-gap: 10px;
+        justify-content: center;
+    }
+
+    &__flat {
+        width: 30px;
+        height: 30px;
+        border: 1px solid $dark25;
+        border-radius: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__value {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

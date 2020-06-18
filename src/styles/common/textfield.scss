@@ -42,10 +42,19 @@
         font-size: 14px;
         line-height: 14px;
 
-        color: rgba(31, 32, 65, 0.75);
+        color: $dark75;
+
+        &::placeholder {
+            color: $dark25;
+        }
     }
 
     &_focused &__input, &__input:focus, &:hover &__input {
+        border-color: $dark50;
+        outline: none;
+    }
+
+    &_focused &__down, &__down:focus, &:hover &__down {
         border-color: $dark50;
         outline: none;
     }
@@ -59,5 +68,34 @@
         justify-content: center;
         align-items: center;
         cursor: pointer;
+    }
+
+    &__down {
+        grid-column: 1/3;
+        overflow-y: hidden;
+        padding: 0;
+        height: 0;
+        
+        border: 0 solid $dark25;
+        box-sizing: border-box;
+        border-radius: 0 0 4px 4px;
+    }
+
+    &_open &__down {
+        padding: 5px 15px;
+        height: auto;
+        border-width: 1px;
+    }
+
+    &_open &__input {
+        border-radius: 4px 4px 0 0;
+    }
+
+    &_open:hover &__input {
+        border-bottom-color: $dark25;
+    }
+ 
+    &_open:hover &__down {
+        border-top-color: $dark25;
     }
 }
