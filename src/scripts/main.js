@@ -1,4 +1,5 @@
 import "jquery-mask-plugin/dist/jquery.mask"
-import { DropDown, BedsForm } from "./common/dropdown"
+import { TextfieldDropdown } from "./common/dropdown"
+import { LifeFormDropDown } from "./common/LifeFormDropDown";
 
-new BedsForm($('#life-dropdown'));
+new LifeFormDropDown('#life-dropdown');

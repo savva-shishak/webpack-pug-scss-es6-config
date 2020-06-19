@@ -1,23 +1,17 @@
-export function BedsForm(htmlBlock) {
-    DropDown.call(this, htmlBlock);
-
-    console.log(this);
-}
-
-export function DropDown(htmlBlock) {
+export function DropDown(htmlBlock, {btnToggler, bodyToggle, openClass}) {
     this.root = $(htmlBlock);
-    this.toggleBtn = this.root.find('.textfield__btn');
-    this.body = this.root.find('.textfield__down');
+    this.toggleBtn = this.root.find(btnToggler);
+    this.body = this.root.find(bodyToggle);
 
-    let toggleValue = this.root.hasClass('textfield_open');
+    let toggleValue = this.root.hasClass(openClass);
 
     Object.defineProperty(this, 'toggle', {
         set(value) {
             if (value) {
-                this.root.addClass('textfield_open');
+                this.root.addClass(openClass);
                 this.body.slideDown();
             } else {
-                this.root.removeClass('textfield_open');
+                this.root.removeClass(openClass);
                 this.body.slideUp();
             }
             toggleValue = value;
@@ -34,4 +28,12 @@ export function DropDown(htmlBlock) {
     } else {
         this.body.hide();
     }
+}
+
+export function TextfieldDropdown(el) {
+    DropDown.call(this, el, {
+        btnToggler: '.textfield__btn',
+        bodyToggle: '.textfield__down',
+        openClass: 'textfield_open'
+    });
 }

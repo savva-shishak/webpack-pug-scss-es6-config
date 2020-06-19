@@ -115,7 +115,7 @@ html(lang="en")
             div Выдвигающиеся поля (живые)
                 .col-12.col-lg-3
                     .p-3
-                        +b.textfield#life-dropdown
+                        +b.textfield._open#life-dropdown
                             +e.head
                                 +e.label dropdown
                                 +e.hint life
@@ -146,5 +146,5 @@ html(lang="en")
                                                 +e.value 0
                                                 +e.flat +
                                     +e.actions
-                                        +e.action очистить
-                                        +e.action применить
+                                        +e.action(act="clear") очистить
+                                        +e.action(act="enter") применить
