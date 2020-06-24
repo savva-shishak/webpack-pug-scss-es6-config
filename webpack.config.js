@@ -63,7 +63,13 @@ module.exports = {
       jQuery: "jquery/dist/jquery.min.js",
       "window.jQuery": "jquery/dist/jquery.min.js"
     }),
-    ...pages('index', 'colors', 'textfields', 'fonts'),
+    ...pages(
+      'index', 
+      'colors', 
+      'textfields', 
+      'fonts',
+      'other-form'
+      ),
     new MiniCssExtractPlugin({
       filename: "[name].css",
       chunkFilename: "[id].css"

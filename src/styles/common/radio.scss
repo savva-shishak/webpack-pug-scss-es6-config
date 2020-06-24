@@ -1,0 +1,46 @@
+.radio {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    cursor: pointer;
+    transition: all .3s;
+
+    &__control {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 20px;
+        height: 20px;
+
+        background: #FFFFFF;
+
+        border: 1px solid $dark25;
+        box-sizing: border-box;
+        border-radius: 10px;
+    }
+    &_true &__control {
+        border-color: $primary;
+    }
+
+    &__mark {
+        width: 12px;
+        height: 12px;
+
+        border-radius: 10px;
+        background: $purple-gradient;
+        opacity: 0;
+        transition: all .3s;
+    }
+    &_true &__mark {
+        opacity: 1;
+    }
+
+    &__label {
+        @include body;
+        margin-top: 3px;
+        margin-left: 5px;
+
+        line-height: 14px;
+    }
+}

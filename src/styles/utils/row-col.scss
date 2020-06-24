@@ -2,6 +2,10 @@
     display: flex;
     flex-flow: row wrap;
     align-items: flex-start;
+
+    &_max-width {
+        width: max-content;
+    }
 }
 
 .col {

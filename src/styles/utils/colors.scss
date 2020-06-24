@@ -5,10 +5,13 @@ $dark25: rgba(#1f2041, 0.25);
 $dark05: rgba(#1f2041, 0.05);
 
 $purple: #bc9cff;
-$primary: $purple;
-
 $green: #6fcf97;
+
+$primary: $purple;
 $secondary: $green;
+
+$purple-gradient: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+$green-gradient: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
 
 .color-piker {
 
@@ -70,5 +73,13 @@ $secondary: $green;
 
     &_dark05 &__box {
         background: $dark05;
+    }
+
+    &_purple-gradient &__box {
+        background: $purple-gradient;
+    }
+
+    &_green-gradient &__box {
+        background: $green-gradient;
     }
 }

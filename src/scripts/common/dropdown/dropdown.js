@@ -37,3 +37,7 @@ export function TextfieldDropdown(el) {
         openClass: 'textfield_open'
     });
 }
+
+export function Expandable(el) {
+    DropDown.call(this)
+}

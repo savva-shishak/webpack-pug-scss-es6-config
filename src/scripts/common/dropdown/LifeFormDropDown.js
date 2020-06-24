@@ -1,5 +1,5 @@
 import { TextfieldDropdown } from "./dropdown";
-import { Count } from "./count";
+import { Count } from "../count";
 
 export function LifeFormDropDown(htmlElement) {
     TextfieldDropdown.call(this, htmlElement);
@@ -38,12 +38,17 @@ export function LifeFormDropDown(htmlElement) {
             }
         }
 
-        this.labelValue.text(values.join(', ') || 'Без пожеланий');
+        this.labelValue.text(values.join(', ').maxLength(30) || 'Без пожеланий');
     }
 
     this.fillValueLabel();
+
     this.enterBtn.click(() => {
         this.fillValueLabel();
         this.toggle = false;
     });
+}
+
+String.prototype.maxLength = function(maxValue) {
+    return this.length > maxValue? this.slice(0, (maxValue - 3)) + '...' : this;
 }

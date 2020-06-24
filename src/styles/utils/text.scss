@@ -7,6 +7,9 @@
 
     color: $dark;
 }
+.h1 {
+    @include text_h1();
+}
 
 @mixin text_h2 {
     font-family: Lato;
@@ -16,6 +19,9 @@
     line-height: 24px;
 
     color: $dark;
+}
+.h2 {
+    @include text_h2();
 }
 
 @mixin text_h3 {
@@ -28,6 +34,9 @@
     text-transform: uppercase;
     color: $dark;
 }
+.h3 {
+    @include text_h3();
+}
 
 @mixin text_small {
     font-family: Montserrat;
@@ -38,6 +47,9 @@
 
     color: $dark25;
     text-transform: none;
+}
+.small {
+    @include text_small();
 }
 
 @mixin link {
@@ -51,25 +63,11 @@
         opacity: .8;
     }
 }
-
-
-.h1 {
-    @include text_h1();
+.link {
+    @include link;
 }
 
-.h2 {
-    @include text_h2();
-}
-
-.h3 {
-    @include text_h3();
-}
-
-.small {
-    @include text_small();
-}
-
-body {
+@mixin body {
     font-family: Montserrat;
     font-style: normal;
     font-weight: normal;
@@ -78,7 +76,6 @@ body {
 
     color: $dark75;
 }
-
-.link {
-    @include link;
+body {
+    @include body();
 }

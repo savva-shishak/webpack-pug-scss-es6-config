@@ -113,38 +113,74 @@ html(lang="en")
                                                 +e.flat +
                                                 
             div Выдвигающиеся поля (живые)
-                .col-12.col-lg-3
-                    .p-3
-                        +b.textfield._open#life-dropdown
-                            +e.head
-                                +e.label dropdown
-                                +e.hint life
-                            +e.control
-                                +e.input 2 спальни, 2 кровати
-                                +e.btn
-                                    img(src="/assets/images/common/textfield/expand_more.png", alt="")
-                                +e.down
-                                    +e.body
-                                        +b.count
-                                            +e.label Комнаты
-                                            +e.input 
-                                                +e.flat -
-                                                +e.value 2
-                                                +e.flat +
-                                        .p-1
-                                        +b.count
-                                            +e.label спальни
-                                            +e.input 
-                                                +e.flat -
-                                                +e.value 2
-                                                +e.flat +
-                                        .p-1
-                                        +b.count
-                                            +e.label ванные комнаты
-                                            +e.input 
-                                                +e.empty
-                                                +e.value 0
-                                                +e.flat +
-                                    +e.actions
-                                        +e.action(act="clear") очистить
-                                        +e.action(act="enter") применить
+                .row
+                    .col-12.col-lg-3
+                        .p-3
+                            +b.textfield._open#life-dropdown
+                                +e.head
+                                    +e.label dropdown
+                                    +e.hint life
+                                +e.control
+                                    +e.input 2 спальни, 2 кровати
+                                    +e.btn
+                                        img(src="/assets/images/common/textfield/expand_more.png", alt="")
+                                    +e.down
+                                        +e.body
+                                            +b.count
+                                                +e.label Комнаты
+                                                +e.input 
+                                                    +e.flat -
+                                                    +e.value 2
+                                                    +e.flat +
+                                            .p-1
+                                            +b.count
+                                                +e.label спальни
+                                                +e.input 
+                                                    +e.flat -
+                                                    +e.value 2
+                                                    +e.flat +
+                                            .p-1
+                                            +b.count
+                                                +e.label ванные комнаты
+                                                +e.input 
+                                                    +e.empty
+                                                    +e.value 0
+                                                    +e.flat +
+                                        +e.actions
+                                            +e.action(act="clear") очистить
+                                            +e.action(act="enter") применить
+                    .col-12.col-lg-3
+                        .p-3
+                            +b.textfield#other-life-dropdown
+                                +e.head
+                                    +e.label other dropdown
+                                    +e.hint life
+                                +e.control
+                                    +e.input 2 спальни, 2 кровати
+                                    +e.btn
+                                        img(src="/assets/images/common/textfield/expand_more.png", alt="")
+                                    +e.down
+                                        +e.body
+                                            +b.count
+                                                +e.label Комнаты
+                                                +e.input 
+                                                    +e.flat -
+                                                    +e.value 2
+                                                    +e.flat +
+                                            .p-1
+                                            +b.count
+                                                +e.label спальни
+                                                +e.input 
+                                                    +e.flat -
+                                                    +e.value 2
+                                                    +e.flat +
+                                            .p-1
+                                            +b.count
+                                                +e.label ванные комнаты
+                                                +e.input 
+                                                    +e.empty
+                                                    +e.value 0
+                                                    +e.flat +
+                                        +e.actions
+                                            +e.action(act="clear") очистить
+                                            +e.action(act="enter") применить

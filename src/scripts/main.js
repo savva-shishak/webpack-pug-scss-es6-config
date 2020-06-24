@@ -1,5 +1,7 @@
 import "jquery-mask-plugin/dist/jquery.mask"
-import { TextfieldDropdown } from "./common/dropdown"
-import { LifeFormDropDown } from "./common/LifeFormDropDown";
+import { LifeFormDropDown } from "./common/dropdown/LifeFormDropDown";
+import { RadioGroup } from "./common/radio/radio-group"
 
 new LifeFormDropDown('#life-dropdown');
+new LifeFormDropDown('#other-life-dropdown');
+new RadioGroup("#life-radio-group");

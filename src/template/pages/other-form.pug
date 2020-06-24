@@ -1,0 +1,58 @@
+include ../common/mixins
++layout('Другие элементы форм')
+    .row
+        .col-12.col-lg-4
+            .p-3
+                .h3 Чекбоксы
+                .p-1
+                    +b.checkbox
+                        +e.control
+                            +e.mark
+                        +e.label Можно курить
+                .p-1
+                    +b.checkbox._true
+                        +e.control
+                            +e.mark
+                        +e.label Можно с питомцами
+                .p-1
+                    +b.checkbox._true
+                        +e.control
+                            +e.mark
+                        +e.label Можно пригласить гостей (до 10 человек) с ночёвкой
+        .col-12.col-lg-3
+            .p-3
+                .h3 Радио кнопки
+                div Не живые
+                .row.row_max-width
+                    .col
+                        .p-3
+                            +b.radio._true
+                                +e.control
+                                    +e.mark
+                                +e.label Мужчина
+                    .col
+                        .p-3
+                            +b.radio
+                                +e.control
+                                    +e.mark
+                                +e.label Женщина
+                div Живые
+                .row.row_max-width#life-radio-group
+                    .col
+                        .p-3
+                            +b.radio(name='man')
+                                +e.control
+                                    +e.mark
+                                +e.label Мужчина
+                    .col
+                        .p-3
+                            +b.radio(name='woman')
+                                +e.control
+                                    +e.mark
+                                +e.label Женщина
+                    .col
+                        .p-3
+                            +b.radio(name='other')
+                                +e.control
+                                    +e.mark
+                                +e.label Другое

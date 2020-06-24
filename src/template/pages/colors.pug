@@ -1,3 +1,11 @@
+mixin piker(className, name, value)
+    .p-3
+        +b.color-piker(class=className)
+            +e.box
+            +e.verbose
+                +e.label=name
+                +e.value=value
+
 doctype html
 html(lang="en")
     head
@@ -11,45 +19,13 @@ html(lang="en")
         +header('Цвета')
 
         .container
-            .p-3
-                +b.color-piker._dark
-                    +e.box
-                    +e.verbose
-                        +e.label Dark Shade 100%
-                        +e.value #1F2041
-            .p-3
-                +b.color-piker._dark75
-                    +e.box
-                    +e.verbose
-                        +e.label Dark Shade 75%
-                        +e.value #1F2041
-            .p-3
-                +b.color-piker._dark50
-                    +e.box
-                    +e.verbose
-                        +e.label Dark Shade 50%
-                        +e.value #1F2041
-            .p-3
-                +b.color-piker._dark25
-                    +e.box
-                    +e.verbose
-                        +e.label Dark Shade 25%
-                        +e.value #1F2041
-            .p-3
-                +b.color-piker._dark05
-                    +e.box
-                    +e.verbose
-                        +e.label Dark Shade 5%
-                        +e.value #1F2041
-            .p-3
-                +b.color-piker._primary
-                    +e.box
-                    +e.verbose
-                        +e.label Purple
-                        +e.value #1F2041
-            .p-3
-                +b.color-piker._secondary
-                    +e.box
-                    +e.verbose
-                        +e.label Green
-                        +e.value #1F2041
+            +piker("_dark", "Dark Shade 100%", "#1F2041")
+            +piker("_dark75", "Dark Shade 75%", "#1F2041")
+            +piker("_dark50", "Dark Shade 50%", "#1F2041")
+            +piker("_dark25", "Dark Shade 25%", "#1F2041")
+            +piker("_dark05", "Dark Shade 5%", "#1F2041")
+
+            +piker("_primary", "Purple", "#BC9CFF")
+            +piker("_purple-gradient", "Purple-gradient", "linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%)")
+            +piker("_secondary", "Green", "#6FCF97")
+            +piker("_green-gradient", "Green-gradient", "linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%)")
