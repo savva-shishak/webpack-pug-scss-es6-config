@@ -1,3 +1,5 @@
+import "./count.scss"
+
 export function Count(htmlBlock) {
     this.root = $(htmlBlock);
     this.input = this.root.find('.count__input');

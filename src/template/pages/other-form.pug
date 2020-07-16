@@ -19,6 +19,23 @@ include ../common/mixins
                         +e.control
                             +e.mark
                         +e.label Можно пригласить гостей (до 10 человек) с ночёвкой
+                #checkbox-example Живые
+                    .p-1
+                        +b.checkbox
+                            +e.control
+                                +e.mark
+                            +e.label Можно курить
+                    .p-1
+                        +b.checkbox._true
+                            +e.control
+                                +e.mark
+                            +e.label Можно с питомцами
+                    .p-1
+                        +b.checkbox._true
+                            +e.control
+                                +e.mark
+                            +e.label Можно пригласить гостей (до 10 человек) с ночёвкой
+                    .active-checkboxes Активные: 0
         .col-12.col-lg-3
             .p-3
                 .h3 Радио кнопки
@@ -50,9 +67,75 @@ include ../common/mixins
                                 +e.control
                                     +e.mark
                                 +e.label Женщина
-                    .col
-                        .p-3
-                            +b.radio(name='other')
-                                +e.control
-                                    +e.mark
-                                +e.label Другое
+        .col-12.col-lg-3
+            .p-3
+                .h3 Переключатели
+                +b.toggle._true
+                    +e.control
+                        +e.mark
+                    +e.label Включенный
+                +b.toggle
+                    +e.control
+                        +e.mark
+                    +e.label Выключенный
+                +b.toggle#toggle-example
+                    +e.control
+                        +e.mark
+                    +e.label Живой
+        .col-12.col-lg-3
+            .p-3
+                .h3 Лайки
+                .p-1
+                    +b.like._true
+                        +e.mark
+                            +e.mark-true
+                            +e.mark-false
+                        +e.number 10
+                .p-1
+                    +b.like
+                        +e.mark
+                            +e.mark-true
+                            +e.mark-false
+                        +e.number 10
+                .h5 Живой
+                .p-1
+                    +b.like#life-like-example
+                        +e.mark
+                            +e.mark-true
+                            +e.mark-false
+                        +e.number 10
+        .col-12.col-lg-3
+            .p-3
+                .h3 Рейтинги
+                .h5 Рейтинг 0
+                .p
+                    +b.rating
+                        +e.item
+                        +e.item
+                        +e.item
+                        +e.item
+                        +e.item
+                .h5 Рейтинг 5
+                .p
+                    +b.rating
+                        +e.item._true
+                        +e.item._true
+                        +e.item._true
+                        +e.item._true
+                        +e.item._true
+                .h5 При наведении
+                .p
+                    +b.rating
+                        +e.item._hover
+                        +e.item._hover
+                        +e.item._hover
+                        +e.item._hover
+                        +e.item._hover
+                .h5 Живой
+                .p
+                    +b.rating#life-example-rating
+                        +e.item
+                        +e.item
+                        +e.item
+                        +e.item
+                        +e.item

@@ -19,7 +19,10 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        
+        transition: .4s;
     }
+
     &_true &__control {
         border-color: $primary;
     }
@@ -27,9 +30,10 @@
     &__mark {
         width: 10px;
         height: 12px;
-        background-image: url("/assets/images/common/checkbox/Vector.png");
+        background-image: url("./Vector.png");
         background-size: 100%;
         opacity: 0;
+        transition: .4s;
     }
     &_true &__mark {
         opacity: 1;

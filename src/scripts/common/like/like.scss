@@ -1,0 +1,60 @@
+.like {
+    height: 20px;
+    width: 40px;
+    background: #FFFFFF;
+    border-radius: 10px;
+    border: 1px solid $primary;
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    cursor: pointer;
+
+    &__number {
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 10px;
+        line-height: 12px;
+        padding-right: 5px;
+
+        color: $dark25;
+        transition: .3s;
+    }
+
+    &__mark {
+        width: 10px;
+        height: 8px;
+        position: relative;
+    }
+
+    &__mark-true {
+        background-image: url("./1.png");
+        width: 10px;
+        height: 8px;
+        position: absolute;
+        opacity: 0;
+        transition: .3s;
+    }
+
+    &__mark-false {
+        background-image: url("./2.png");
+        width: 10px;
+        height: 8px;
+        position: absolute;
+        transition: .3s;
+    }
+
+    &_true &__number {
+        color: $primary;
+    }
+
+    &_true &__mark-true {
+        opacity: 1;
+    }
+
+    &_true &__mark-false {
+        opacity: 0;
+    }
+}

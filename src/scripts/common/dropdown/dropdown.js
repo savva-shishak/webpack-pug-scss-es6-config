@@ -1,3 +1,5 @@
+import "./textfield.scss"
+
 export function DropDown(htmlBlock, {btnToggler, bodyToggle, openClass}) {
     this.root = $(htmlBlock);
     this.toggleBtn = this.root.find(btnToggler);
@@ -32,7 +34,7 @@ export function DropDown(htmlBlock, {btnToggler, bodyToggle, openClass}) {
 
 export function TextfieldDropdown(el) {
     DropDown.call(this, el, {
-        btnToggler: '.textfield__btn',
+        btnToggler: ".textfield__btn",
         bodyToggle: '.textfield__down',
         openClass: 'textfield_open'
     });

@@ -1,5 +1,5 @@
 import { TextfieldDropdown } from "./dropdown";
-import { Count } from "../count";
+import { Count } from "../count/index";
 
 export function LifeFormDropDown(htmlElement) {
     TextfieldDropdown.call(this, htmlElement);
@@ -16,14 +16,6 @@ export function LifeFormDropDown(htmlElement) {
     this.enterBtn = this.root.find('[act="enter"]');
 
     this.labelValue = this.root.find('.textfield__input');
-
-    this.clearBtn.click(() => {
-        for (const count in this.counts) {
-            if (this.counts.hasOwnProperty(count)) {
-                this.counts[count].value = 0;
-            }
-        }
-    });
 
     this.fillValueLabel = function() {
         let values = [];
@@ -42,6 +34,14 @@ export function LifeFormDropDown(htmlElement) {
     }
 
     this.fillValueLabel();
+
+    this.clearBtn.click(() => {
+        for (const count in this.counts) {
+            if (this.counts.hasOwnProperty(count)) {
+                this.counts[count].value = 0;
+            }
+        }
+    });
 
     this.enterBtn.click(() => {
         this.fillValueLabel();

@@ -1,0 +1,21 @@
+.rating {
+    display: grid;
+    grid-template-columns: repeat(5, 20px);
+    grid-template-rows: 20px;
+    gap: 5px;
+
+    &__item {
+        cursor: pointer;
+        background: url("./star_border.png");
+
+        &_true {
+            opacity: 1 !important;
+            background: url("./star.png");
+        }
+
+        &_hover {
+            opacity: .5;
+            background: url("./star.png");
+        }
+    }
+}

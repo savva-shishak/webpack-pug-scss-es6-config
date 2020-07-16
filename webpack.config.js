@@ -25,33 +25,33 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        use: [{
-          loader: MiniCssExtractPlugin.loader,
-          options: {
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
               sourceMap: true
+            }
+          },
+          {
+              loader: "css-loader",
+              options: {
+                sourceMap: true
+              }
+          },
+          {
+              loader: "sass-loader",
+              options: {
+                sourceMap: true,
+                data: '@import "./src/styles/utils/index.scss";'
+              }
           }
-        },
-        {
-            loader: "css-loader",
-            options: {
-                sourceMap: true
-            }
-        },
-        {
-            loader: "sass-loader",
-            options: {
-                sourceMap: true
-            }
-        }]
+        ]
       },
       {
         test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
         use: [
           {
-            loader: 'file-loader',
-            options: {
-              name: '[path][name].[ext]'
-            }
+            loader: 'file-loader'
           }
         ]
       }
@@ -73,11 +73,7 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: "[name].css",
       chunkFilename: "[id].css"
-    }),
-    new CopyWebpackPlugin([
-      { from: './src/assets/images', to: './assets/images' },
-      { from: './src/assets/fonts', to: './assets/fonts' },
-    ])
+    })
   ]
 };
 

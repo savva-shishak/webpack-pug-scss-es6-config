@@ -71,6 +71,20 @@
         transition: .3s;
     }
 
+    &__expend {
+        width: 12px;
+        height: 8px;
+        background: url("./expand_more.png");
+    }
+
+    &__forward {
+        width: 15px;
+        height: 15px;
+        background: url("./arrow_forward.png");
+        background-size: 100%;
+
+    }
+
     &__down {
         grid-column: 1/3;
         overflow-y: hidden;
