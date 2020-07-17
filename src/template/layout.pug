@@ -1,0 +1,32 @@
+mixin layout(title)
+    - 
+        var links = [
+            {"href": 'index',      "name": 'Главная'}, 
+            {"href": 'colors',     "name": 'Цвета'}, 
+            {"href": 'fonts',      "name": 'Шрифты'}, 
+            {"href": 'textfields', "name": 'Поля ввода'}, 
+            {"href": 'other-form', "name": 'Другие элементы форм', }
+        ];
+    
+    - var activeLink
+
+
+    - for (var link of links) 
+        - if (link.name == title) activeLink = link.href
+    
+
+    doctype html
+    html(lang="en")
+        head
+            meta(charset="utf-8")
+            meta(name="viewport", content="width=device-width, initial-scale=1.0")
+            title=title
+            link(rel="stylesheet", href="./styles_utils.css")
+            link(rel="stylesheet", href=("./" + activeLink + ".css"))
+            script(src=("./" + activeLink + ".js") defer)
+        body
+
+            +header(title, links)
+    
+            .container
+                block

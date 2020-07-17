@@ -1,0 +1,193 @@
+include ../../template/mixins
++layout('Поля ввода')
+    .container
+        div Текстовые поля
+        .row.mb-4
+            .col-12.col-lg-3
+                .p-3
+                    +b.textfield
+                        +e.head
+                            +e.label text field
+                            +e.hint default
+                        input.textfield__input(type="text", placeholder="Email")
+            .col-12.col-lg-3
+                .p-3
+                    +b.textfield._focused
+                        +e.head
+                            +e.label text field
+                            +e.hint hover/focus
+                        +e.control
+                            input.textfield__input(type="text", value="This is pretty awesome")
+            .col-12.col-lg-3
+                .p-3
+                    +b.textfield
+                        +e.head
+                            +e.label dropdown
+                            +e.hint default
+                        +e.control
+                            +e.input Сколько гостей
+                            +e.btn
+                                +e.expend
+                                
+            .col-12.col-lg-3
+                .p-3
+                    +b.textfield
+                        +e.head
+                            +e.label masked text field
+                            +e.hint default
+                        +e.control
+                            input.textfield__input(data-mask="00.00.0000", placeholder="ДД.ММ.ГГГГ")
+            .col-12.col-lg-3
+                .row
+                    .col-6    
+                        .p-3
+                            +b.textfield
+                                +e.head
+                                    +e.label date dropdown
+                                +e.control
+                                    +e.input ДД.ММ.ГГГГ
+                                    +e.btn
+                                        +e.expend
+                                        
+                    .col-6    
+                        .p-3
+                            +b.textfield
+                                +e.head
+                                    +e.label date dropdown
+                                +e.control
+                                    +e.input 19.08.2019
+                                    +e.btn
+                                        +e.expend
+                                        
+            .col-12.col-lg-3
+                .p-3
+                    +b.textfield
+                        +e.head
+                            +e.label subscription text field
+                        +e.control
+                            +e.input 19.08.2019
+                            +e.btn
+                                +e.forward
+                                        
+
+        div Выдвигающиеся поля
+        .row
+            .col-12.col-lg-3
+                .p-3
+                    +b.textfield
+                        +e.head
+                            +e.label dropdown
+                            +e.hint default
+                        +e.control
+                            +e.input 2 спальни, 2 кровати
+                            +e.btn
+                                +e.expend
+                                
+            .col-12.col-lg-3
+                .p-3
+                    +b.textfield._open
+                        +e.head
+                            +e.label dropdown
+                            +e.hint expended
+                        +e.control
+                            +e.input 2 спальни, 2 кровати
+                            +e.btn
+                                +e.expend
+                                
+                            +e.down
+                                +e.body
+                                    +b.count
+                                        +e.label Комнаты
+                                        +e.input 
+                                            +e.flat -
+                                            +e.value 2
+                                            +e.flat +
+                                    .p-1
+                                    +b.count
+                                        +e.label спальни
+                                        +e.input 
+                                            +e.flat -
+                                            +e.value 2
+                                            +e.flat +
+                                    .p-1
+                                    +b.count
+                                        +e.label ванные комнаты
+                                        +e.input 
+                                            +e.empty
+                                            +e.value 0
+                                            +e.flat +
+                                            
+        div Выдвигающиеся поля (живые)
+            .row
+                .col-12.col-lg-3
+                    .p-3
+                        +b.textfield._open#life-dropdown
+                            +e.head
+                                +e.label dropdown
+                                +e.hint life
+                            +e.control
+                                +e.input 2 спальни, 2 кровати
+                                +e.btn
+                                    +e.expend
+                                    
+                                +e.down
+                                    +e.body
+                                        +b.count
+                                            +e.label Комнаты
+                                            +e.input 
+                                                +e.flat -
+                                                +e.value 2
+                                                +e.flat +
+                                        .p-1
+                                        +b.count
+                                            +e.label спальни
+                                            +e.input 
+                                                +e.flat -
+                                                +e.value 2
+                                                +e.flat +
+                                        .p-1
+                                        +b.count
+                                            +e.label ванные комнаты
+                                            +e.input 
+                                                +e.empty
+                                                +e.value 0
+                                                +e.flat +
+                                    +e.actions
+                                        +e.action(act="clear") очистить
+                                        +e.action(act="enter") применить
+                .col-12.col-lg-3
+                    .p-3
+                        +b.textfield#other-life-dropdown
+                            +e.head
+                                +e.label other dropdown
+                                +e.hint life
+                            +e.control
+                                +e.input 2 спальни, 2 кровати
+                                +e.btn
+                                    +e.expend
+                                    
+                                +e.down
+                                    +e.body
+                                        +b.count
+                                            +e.label Комнаты
+                                            +e.input 
+                                                +e.flat -
+                                                +e.value 2
+                                                +e.flat +
+                                        .p-1
+                                        +b.count
+                                            +e.label спальни
+                                            +e.input 
+                                                +e.flat -
+                                                +e.value 2
+                                                +e.flat +
+                                        .p-1
+                                        +b.count
+                                            +e.label ванные комнаты
+                                            +e.input 
+                                                +e.empty
+                                                +e.value 0
+                                                +e.flat +
+                                    +e.actions
+                                        +e.action(act="clear") очистить
+                                        +e.action(act="enter") применить

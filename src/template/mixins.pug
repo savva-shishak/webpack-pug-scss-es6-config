@@ -1,0 +1,11 @@
+include ../../node_modules/bemto.pug/bemto.pug
+include ./header.pug
+include ./layout.pug
+
+mixin piker(className, name, value)
+    .p-3
+        +b.color-piker(class=className)
+            +e.box
+            +e.verbose
+                +e.label=name
+                +e.value=value

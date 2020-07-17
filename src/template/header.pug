@@ -1,0 +1,6 @@
+mixin header(activeLink, links)
+    +b.header
+        .container
+            +e.links
+                each link in links
+                    +e(class=('link' + (link.name == activeLink? ' _active': '')), href=("/" + link.href + ".html"))=link.name

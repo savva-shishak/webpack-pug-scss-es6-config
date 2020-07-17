@@ -1,11 +1,20 @@
 const webpack = require('webpack');
 const path = require('path');
-const HtmlWebPackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const HtmlWebpackInjector = require('html-webpack-injector');
+
+const [pages, entry] = require("./pages")
 
 module.exports = {
   devtool: "source-map",
+  entry: {
+    ...entry,
+    styles_utils: './src/styles/main.scss'
+  },
+  output: {
+    filename: "./[name].js"
+  },
   module: {
     rules: [
       {
@@ -42,18 +51,14 @@ module.exports = {
               loader: "sass-loader",
               options: {
                 sourceMap: true,
-                data: '@import "./src/styles/utils/index.scss";'
+                data: '@import "src/styles/utils/index.scss";'
               }
           }
         ]
       },
       {
         test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
-        use: [
-          {
-            loader: 'file-loader'
-          }
-        ]
+        loader: 'file-loader'
       }
     ]
   },
@@ -63,23 +68,12 @@ module.exports = {
       jQuery: "jquery/dist/jquery.min.js",
       "window.jQuery": "jquery/dist/jquery.min.js"
     }),
-    ...pages(
-      'index', 
-      'colors', 
-      'textfields', 
-      'fonts',
-      'other-form'
-      ),
+    ...pages,
+    new HtmlWebpackInjector(),
+    new CleanWebpackPlugin({cleanStaleWebpackAssets: false}),
     new MiniCssExtractPlugin({
-      filename: "[name].css",
+      filename: "./[name].css",
       chunkFilename: "[id].css"
-    })
+    }),
   ]
 };
-
-function pages() {
-  return [].map.call(arguments, page =>  new HtmlWebPackPlugin({
-    template: "./src/template/pages/" + page + ".pug",
-    filename: "./" + page + ".html"
-  }))
-}
