@@ -9,3 +9,9 @@ mixin piker(className, name, value)
             +e.verbose
                 +e.label=name
                 +e.value=value
+
+mixin section(title)
+    .col-12.col-lg-4
+        .p-3
+            .h3=title
+            block

@@ -1,0 +1,29 @@
++section("Радио кнопки")
+    div Не живые
+    .row.row_max-width
+        .col
+            .p-3
+                +b.radio._true
+                    +e.control
+                        +e.mark
+                    +e.label Мужчина
+        .col
+            .p-3
+                +b.radio
+                    +e.control
+                        +e.mark
+                    +e.label Женщина
+    div Живые
+    .row.row_max-width#life-radio-group
+        .col
+            .p-3
+                +b.radio(name='man')
+                    +e.control
+                        +e.mark
+                    +e.label Мужчина
+        .col
+            .p-3
+                +b.radio(name='woman')
+                    +e.control
+                        +e.mark
+                    +e.label Женщина
