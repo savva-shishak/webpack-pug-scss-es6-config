@@ -10,7 +10,7 @@ module.exports = {
   devtool: "source-map",
   entry: {
     ...entry,
-    styles_utils: './src/styles/main.scss'
+    styles_utils: './src/global/styles/main.scss'
   },
   output: {
     filename: "./[name].js"
@@ -51,7 +51,7 @@ module.exports = {
               loader: "sass-loader",
               options: {
                 sourceMap: true,
-                data: '@import "src/styles/utils/index.scss";'
+                data: '@import "src/global/styles/utils/index.scss";'
               }
           }
         ]

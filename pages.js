@@ -1,10 +1,7 @@
+const config = require('./build.config')
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 
-module.exports = getPagesAndEntries("index", "colors", "other-form", "textfields", "fonts");
-
-function getPagesAndEntries(...pagenames) {
-    return [getPages(pagenames), getEntries(pagenames)];
-}
+module.exports = [getPages(config.pages), getEntries(config.pages)];
 
 function getPages(pages) {
     return pages.map(pagename => page(pagename))
@@ -25,7 +22,6 @@ function page(pagename) {
             template: "./src/pages/" + pagename + "/index.pug",
             filename: "./" + pagename + ".html",
             inject: false,
-            // chunks: ["style", "main_style"]
         });
 }
 
