@@ -1,103 +1,102 @@
 import "./slider.scss"
 
-export function Slider(html) {
+export function SliderFromTo(html, {step = 1/6} = {}) {
     const root = $(html);
-    const ctrlMin = root.find(".slider__point_min");
-    const ctrlMax = root.find(".slider__point_max");
+    const ctrlFrom = root.find(".slider__point_from");
+    const ctrlTo = root.find(".slider__point_to");
 
     const line = root.find(".slider__control");
     const container = root.find(".slider__container");
-    const step = .1;
-    const values = [];
 
-    for (let i = 0; i < (1 / step) + 1; i++) {
-        values.push((i * step).toFixed(4));
+    ctrlTo.mousedown(e => {
+        const {body} = document
+        const oldCursorVale = body.style.cursor;
+        body.style.cursor = "grabbing";
+        const startX = e.clientX;
+        const oldMaxValue = this.to
+
+        const moveMouse = e => {
+            this.to = +oldMaxValue - ((+startX - +e.clientX) / +this.maximum);
+        }
+
+        body.addEventListener("mouseup", upMouse);
+        body.addEventListener("mousemove", moveMouse);
+
+        function upMouse() {
+            body.style.cursor = oldCursorVale;
+            body.removeEventListener("mousemove", upMouse);
+            body.removeEventListener("mousemove", moveMouse);
+        }
+
+    });
+
+    ctrlFrom.mousedown(e => {
+        const {body} = document
+        const oldCursorVale = body.style.cursor;
+        body.style.cursor = "grabbing";
+        const startX = e.clientX;
+        const oldMinValue = this.from
+
+        const moveMouse = e => {
+            this.from = +oldMinValue - ((+startX - +e.clientX) / +this.maximum);
+        }
+
+        body.addEventListener("mouseup", upMouse);
+        body.addEventListener("mousemove", moveMouse);
+
+        function upMouse() {
+            body.style.cursor = oldCursorVale;
+            body.removeEventListener("mousemove", upMouse);
+            body.removeEventListener("mousemove", moveMouse);
+        }
+
+    });
+
+    const setMin = size => {
+        line.css('margin-left', getMinStep(size) * this.maximum + "px");
     }
 
-    console.log(values);
-
-    ctrlMax.mousedown(e => {
-        const {body} = document
-        const oldCursorVale = body.style.cursor;
-        body.style.cursor = "grabbing";
-        const startX = e.clientX;
-        const oldMaxValue = this.max
-
-        const moveMouse = e => {
-            this.max = +oldMaxValue - ((+startX - +e.clientX) / +this.maximum);
-        }
-
-        body.addEventListener("mouseup", upMouse);
-        body.addEventListener("mousemove", moveMouse);
-
-        function upMouse() {
-            body.style.cursor = oldCursorVale;
-            body.removeEventListener("mousemove", upMouse);
-            body.removeEventListener("mousemove", moveMouse);
-        }
-
-    });
-
-    ctrlMin.mousedown(e => {
-        const {body} = document
-        const oldCursorVale = body.style.cursor;
-        body.style.cursor = "grabbing";
-        const startX = e.clientX;
-        const oldMinValue = this.min
-
-        const moveMouse = e => {
-            this.min = +oldMinValue - ((+startX - +e.clientX) / +this.maximum);
-        }
-
-        body.addEventListener("mouseup", upMouse);
-        body.addEventListener("mousemove", moveMouse);
-
-        function upMouse() {
-            body.style.cursor = oldCursorVale;
-            body.removeEventListener("mousemove", upMouse);
-            body.removeEventListener("mousemove", moveMouse);
-        }
-
-    });
+    const setMax = size => {
+        line.width(getMaxStep(size) * this.maximum + "px")
+    }
 
     Object.defineProperties(this, {
-        max: {
+        to: {
             get() {
-                const max = container.width()
                 const margin = line.css('margin-left').split('px')[0];
                 const width = line.width()
-                return ((+width + +margin) / +max).toFixed(4)
+                return ((+width + +margin) / + this.maximum).toFixed(4)
             },
             set(value) {
-                const oldMinValue = this.min;
-                const max = container.width()
-                if (value <= +this.min + .1) {
-                    line.width(.1 * +this.maximum);
+                
+                if (value <= +this.from + step) {
+                    setMax(step);
                 } else if (value >= 1) { 
-                    line.width((1 - this.min) * max + "px") 
+                    setMax(1 - +this.from);
                 } else {
-                    line.width((+value - +this.min) * max + "px");
+                    setMax(+value - +this.from);
                 }
-                line.css('margin-left', oldMinValue * max + "px");
+                this.root[0].dispatchEvent(new Event('to'));
             }
         },
-        min: {
+        from: {
             get() {
-                const max = container.width()
                 const margin = line.css('margin-left').split('px')[0];
-                return (+margin / +max).toFixed(4);
+                return (+margin / +this.maximum).toFixed(4);
             },
             set(value) {
-                const oldMaxValue = this.max;
-                const max = container.width()
-                if (value >= this.max - .1) {
-                    line.css('margin-left', (+this.max - .1) * +max + "px")
+                const oldMaxValue = this.to;
+
+                if (value >= this.to - step) {
+                    setMin(this.to - step);
                 } else if (value <= 0) {
-                    line.css('margin-left', 0);
+                    setMin(0)
                 } else {                    
-                    line.css('margin-left', +value * +max + "px");
+                    setMin(+value);
                 }
-                this.max = oldMaxValue;
+
+                this.to = oldMaxValue;
+                this.root[0].dispatchEvent(new Event('from'));
             }
         },
         maximum: {
@@ -107,6 +106,15 @@ export function Slider(html) {
         }
     });
 
-    this.min = .1;
-    this.max = .75;
+    function getMinStep(size) {
+        return (size / step << 0) * step
+    }
+
+    function getMaxStep(size) {
+        return (size / step + step << 0) * step
+    }
+
+    this.root = root;
+    this.ctrlTo = ctrlTo;
+    this.ctrlFrom = ctrlFrom;
 }
