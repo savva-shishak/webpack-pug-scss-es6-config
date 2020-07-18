@@ -16,7 +16,12 @@
     &__control {
         display: grid;
         grid-template-columns: 6px 1fr 6px;
+        gap: 5px;
         background: white;
+    }
+
+    &_single &__control {
+        grid-template-columns: 1fr 6px;
     }
 
     &__point {
@@ -26,21 +31,23 @@
 
         border-radius: 3px;
         transform: scale(2);
-        cursor: grab;
+        cursor: pointer;
 
         &:active {
-            cursor: grabbing;
+            cursor: pointer;
             transform: scale(4);
         }
     }
 
     &__line {
-        width: calc(100% - 12px);
+        width: 100%;
         height: 6px;
-
-        margin: 0 5px;
+        cursor: pointer;
 
         background: $green-gradient;
+    }
+    &_single &__line {
+        margin: 0 0;
     }
 
     &__head {
