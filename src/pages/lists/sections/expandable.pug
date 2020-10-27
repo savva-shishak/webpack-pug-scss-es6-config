@@ -1,0 +1,37 @@
+include ./expandable.mixin.pug
+
++section("Разворачивающиеся панели", 12)
+  .row
+    .col-12.col-lg-4
+      .p-1
+        +b.expandable
+          +e.head
+              +e.title Закрытая панель
+              +e.btn
+                  +e.expend
+                  
+              +e.down
+                //- +e.body
+                //-   +body
+    .col-12.col-lg-4
+      .p-1
+        +b.expandable._open
+          +e.head
+              +e.title Открытая панель
+              +e.btn
+                  +e.expend
+                  
+              +e.down
+                +e.body
+                  +body
+    .col-12.col-lg-4
+      .p-1
+        +b.expandable._open#life-expandable
+          +e.head
+              +e.title Живая панель
+              +e.btn
+                  +e.expend
+                  
+              +e.down
+                +e.body
+                  +body

@@ -1,0 +1,60 @@
+.expandable {
+  &__head {
+    display: grid;
+    grid-template-columns: 1fr 44px;
+
+    align-items: center;
+  }
+
+  &__title {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 15px;
+
+    text-transform: uppercase;
+
+    color: #1F2041;
+  }
+
+  &__btn {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: .3s;
+  }
+
+  &__expend {
+    width: 12px;
+    height: 8px;
+    background: url("./expand_more.png");
+  }
+
+  &__body {
+    padding: 5px 15px;
+  }
+
+  &_open &__down {
+    border-width: 1px;
+  }
+
+  &_open &__input {
+      border-radius: 4px 4px 0 0;
+  }
+
+  &_open:hover &__input {
+      border-bottom-color: $dark25;
+  }
+
+  &_open:hover &__down {
+      border-top-color: $dark25;
+  }
+
+  &_open &__btn {
+      transform: rotate(180deg);
+  }
+}

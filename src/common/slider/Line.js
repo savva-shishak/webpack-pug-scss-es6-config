@@ -8,10 +8,6 @@ export function Line(node, {steps = 10} = {}) {
         return (num * steps >> 0) / steps
     }
 
-    function stepsMax(num) {
-        return stepsMin(num) + 1/steps;
-    }
-
     function input(num) {
         return num * root.width();
     }
@@ -42,4 +38,8 @@ export function Line(node, {steps = 10} = {}) {
        },
 
    });
+
+   this.left = left;
+   this.right = right;
+   this.root = root;
 }

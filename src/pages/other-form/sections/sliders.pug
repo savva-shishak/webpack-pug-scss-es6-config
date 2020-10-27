@@ -2,24 +2,28 @@
     .p-1
         |Двойной
         +b.slider
-            +e.container
-                +e.control
-                    +e.point._from
-                    +e.line
-                    +e.point._to
-        |Одиночный
-        +b.slider
-            +e.container
-                +e.control._single
-                    +e.line
-                    +e.point._to
-    .p-1
-        |Двойной живой
-        +b.slider#life-slider-example
-            +e.container
+            +e.container#slider-from-to-example
                 +e.space._left
                 +e.control
                     +e.point._from
                     +e.line
                     +e.point._to
                 +e.space._right
+        |Одиночный
+        +b.slider
+            +e.container#slider-to-example
+                +e.space._left
+                +e.control._single
+                    +e.line
+                    +e.point._to
+                +e.space._right
+    .p-1
+        //- |Двойной живой
+        //- +b.slider#life-slider-example
+        //-     +e.container
+        //-         +e.space._left
+        //-         +e.control
+        //-             +e.point._from
+        //-             +e.line
+        //-             +e.point._to
+        //-         +e.space._right

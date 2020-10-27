@@ -7,27 +7,46 @@ export function Slider(html, opts = {}) {
     const container = root.find(".slider__container");
     const line = new Line(container, opts);
 
-    line.to = opts.to || 1;
-    line.from = opts.from || 0;
+    line.to = opts.to || .6;
+    line.from = opts.from || 0.4;
 
-    body.mousemove(({which, target, pageX, originalEvent}) => {
-        originalEvent.preventDefault();
+    let pointMove = null;
+    let startX = null;
+    let endX = null;
+    let valueMoved = null;
 
-        if (which === 1 && isChildren(target)) {
-            console.log(pageX);
-            console.log($(target).position().left);
+    // body.on('mouseover', e => {
+    //     pointMove = null;
+    // });
+
+    container.on('mouseup', e => {
+        pointMove = null;
+    });
+
+    container.on('mousedown', e => {
+        const target = $(e.target);
+        startX = e.clientX / line.line.width();
+
+        if (target.hasClass('slider__point_from')) {
+            pointMove = 'from';
+            valueMoved = line.from;
+        }
+
+        if (target.hasClass('slider__point_to')) {
+            pointMove = 'to';
+            valueMoved = line.to;
         }
     });
 
-    console.log(root.position());
+    container.on('mousemove', e => {
+        e.preventDefault();
+        endX = e.clientX / line.line.width();
+        if (pointMove) {
+            changePosition();
+        }
+    });
 
-    function isChildren({parentElement}) {
-        if (parentElement == null) {
-            return false;
-        }
-        if (parentElement == root[0]) {
-            return true;
-        }
-        return isChildren(parentElement )
+    function changePosition() {
+        console.log(valueMoved + (endX - startX));
     }
 }

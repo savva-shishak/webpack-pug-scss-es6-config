@@ -4,6 +4,7 @@ module.exports = {
         "colors", 
         "other-form", 
         "textfields", 
-        "fonts"
+        "fonts",
+        "lists"
     ]
 }
