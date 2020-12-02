@@ -1,11 +1,11 @@
-mixin layout(title)
+mixin layout(title, withTitle=true)
     - 
         var links = [
             {"href": 'index',      "name": 'Главная'}, 
             {"href": 'colors',     "name": 'Цвета'}, 
             {"href": 'fonts',      "name": 'Шрифты'}, 
             {"href": 'textfields', "name": 'Поля ввода'}, 
-            {"href": 'lists', "name": 'Списки'}, 
+            {"href": 'lists',      "name": 'Списки'}, 
             {"href": 'other-form', "name": 'Другие элементы форм', }
         ];
     
@@ -26,8 +26,12 @@ mixin layout(title)
             link(rel="stylesheet", href=("./" + activeLink + ".css"))
             script(src=("./" + activeLink + ".js") defer)
         body
+            +b.page-container
+                +e.list
+                    +b.list
+                        - for (var link of links) 
+                            +e.item
+                                +e(class=('link' + (link.href == activeLink? '_active': '')), href=("/" + link.href + ".html"))=link.name
 
-            +header(title, links)
-    
-            .container
-                block
+                +e.content
+                    block
