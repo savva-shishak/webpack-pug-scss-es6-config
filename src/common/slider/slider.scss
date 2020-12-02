@@ -1,5 +1,6 @@
 .slider {
     width: 100%;
+    min-height: 20px;
 
     &__container {
         width: 100%;
@@ -10,14 +11,23 @@
         border: 1px solid rgba(31, 32, 65, 0.25);
         box-sizing: border-box;
         border-radius: 3px;
-        margin-top: 15px;
+
+        display: grid;
+        grid-template-columns: max-content 1fr max-content;
+
+        cursor: pointer;
     }
 
     &__control {
+        width: 100%;
         display: grid;
         grid-template-columns: 6px 1fr 6px;
         gap: 5px;
         background: white;
+
+        &_single {
+            grid-template-columns: 1fr 6px;
+        }
     }
 
     &_single &__control {
@@ -31,10 +41,8 @@
 
         border-radius: 3px;
         transform: scale(2);
-        cursor: pointer;
 
         &:active {
-            cursor: pointer;
             transform: scale(4);
         }
     }
@@ -42,7 +50,6 @@
     &__line {
         width: 100%;
         height: 6px;
-        cursor: pointer;
 
         background: $green-gradient;
     }

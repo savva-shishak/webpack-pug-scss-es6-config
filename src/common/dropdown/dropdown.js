@@ -1,5 +1,6 @@
-import "./textfield.scss"
-import "jquery-mask-plugin/dist/jquery.mask"
+import "./textfield.scss";
+import "./expandable.scss";
+import "jquery-mask-plugin/dist/jquery.mask";
 
 export function DropDown(htmlBlock, {btnToggler, bodyToggle, openClass}) {
     this.root = $(htmlBlock);
@@ -12,10 +13,10 @@ export function DropDown(htmlBlock, {btnToggler, bodyToggle, openClass}) {
         set(value) {
             if (value) {
                 this.root.addClass(openClass);
-                this.body.slideDown();
+                this.body.stop().slideDown();
             } else {
                 this.root.removeClass(openClass);
-                this.body.slideUp();
+                this.body.stop().slideUp();
             }
             toggleValue = value;
         },
@@ -42,5 +43,9 @@ export function TextfieldDropdown(el) {
 }
 
 export function Expandable(el) {
-    DropDown.call(this)
+    DropDown.call(this, el, {
+        btnToggler: ".expandable__btn",
+        bodyToggle: '.expandable__down',
+        openClass: 'expandable_open'
+    });
 }

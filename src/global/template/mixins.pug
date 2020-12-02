@@ -10,8 +10,8 @@ mixin piker(className, name, value)
                 +e.label=name
                 +e.value=value
 
-mixin section(title)
-    .col-12.col-lg-4
+mixin section(title, col = 4)
+    div(class = ('col-12 col-lg-' + col))
         .p-3
             .h3=title
             block

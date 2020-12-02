@@ -1,51 +1,29 @@
 +section("Слайдеры")
     .p-1
-        .p-3
-            +b.slider
-                +e.container
-                    +e.control
-                        +e.point._from
-                        +e.line
-                        +e.point._to
-        .p-1
-            .h5 Живые
-            .p-3
-                +b.slider#life-slider-example1
-                    +e.head
-                        +e.label Шаг 5%
-                    +e.container
-                        +e.control
-                            +e.point._from
-                            +e.line
-                            +e.point._to
-            .p-3
-                +b.slider#life-slider-example2
-                    +e.head
-                        +e.label Шаг 33%
-                    +e.container
-                        +e.control
-                            +e.point._from
-                            +e.line
-                            +e.point._to
-            
-        .p-1
-            .h5 Пример с валютой
-            .p-3
-                +b.slider#life-slider-example-money
-                    +e.head
-                        +e.label Стоимость
-                        +e.value
-                    +e.container
-                        +e.control
-                            +e.point._from
-                            +e.line
-                            +e.point._to
-            
-        .p-1
-            .h5 Одиночный
-            .p-3
-                +b.slider._single#life-single-slider
-                    +e.container
-                        +e.control
-                            +e.line
-                            +e.point._to
+        |Двойной
+        +b.slider
+            +e.container#slider-from-to-example
+                +e.space._left
+                +e.control
+                    +e.point._from
+                    +e.line
+                    +e.point._to
+                +e.space._right
+        |Одиночный
+        +b.slider
+            +e.container#slider-to-example
+                +e.space._left
+                +e.control._single
+                    +e.line
+                    +e.point._to
+                +e.space._right
+    .p-1
+        //- |Двойной живой
+        //- +b.slider#life-slider-example
+        //-     +e.container
+        //-         +e.space._left
+        //-         +e.control
+        //-             +e.point._from
+        //-             +e.line
+        //-             +e.point._to
+        //-         +e.space._right

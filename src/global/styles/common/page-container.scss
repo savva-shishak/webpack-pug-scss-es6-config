@@ -1,0 +1,17 @@
+.page-container {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    height: 100vh;
+
+    &__list {
+        width: 300px;
+        background-color: $dark05;
+        padding-left: 15px;
+    }
+
+    &__content {
+        padding: 15px;
+        max-height: 100%;
+        overflow: auto;
+    }
+}
